@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Detail {{event.title}}</h1>
+    <ul>
+        <b>Start Date:</b><li>{{ event.start_date|date:"Y F j, H:i" }}</li>
+        <b>End Date:</b><li>{{ event.end_date|date:"Y F j, H:i" }}</li>
+        <b>Registered:</b><li>{{ event.registered|date:"Y F j" }}</li>
+        <b>Excerpt:</b><li>{{ event.excerpt }}</li>
+        <b>Description:</b><li>{{ event.description }}</li>
+        <b>Location:</b><li>{{ event.location }}</li>
+        <b>Published:</b><li>{{ event.published }}</li>
+        <b>Publish on:</b><li>{{ event.publish_on }}</li>
+    </ul>
+{% endblock %}

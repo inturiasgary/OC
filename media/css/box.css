@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* CSS Document */
+div.box{
+	width:270px;
+	height:auto !important;
+	min-height:222px;
+	height:222px;
+	background:url(../images/box.header.bg.png) no-repeat top left;
+}
+span.box_header{
+	display:block;
+	height:42px;
+}
+span.box_header h3{
+	text-indent:-9999px;
+	display:block;
+	height:45px;
+	width:270px;
+}
+span.box_content{
+	display:block;
+	height:auto !important;
+	min-height:118px;
+	height:118px;
+	padding:10px 20px 20px;
+	font-size:12px;
+	position:relative;
+	background: #b0c3cf;
+}
+span.box_footer{
+	display:block;
+	clear:both;
+	height:17px;
+	background:url(../images/box.footer.bg.png) no-repeat bottom left;
+}

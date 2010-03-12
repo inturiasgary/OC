@@ -1,0 +1,80 @@
+
+{% load math_filters %}
+{% load i18n %}
+{% ifnotequal total_pages 1 %}
+<span class="page"> </span>
+	<!-- nuevo -->
+	{% if has_previous %}
+	     <a href="{{ get_params }}{{ has_prev_num }}" class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>
+	{% else %}
+	    <span class="disabled prev">&lsaquo;&lsaquo; {% trans "previous" %}</span>
+	{% endif %}
+	<!-- hasta aqui -->
+	{% if has_start_page %}
+	    <a class="{{ pagination_class }}" href="{{ get_params }}1">1</a>  
+	{% endif %}
+
+	{% if has_start_hellip %}
+	     &hellip; 
+	{% endif %}
+
+	{% if has_previous_previous %}
+	     <a class="{{ pagination_class }}" href="{{ get_params }}{{ current_page|sub:2 }}">{{ current_page|sub:2 }}</a> 
+	{% endif %}
+	{% if has_previous %}
+	     <a class="{{ pagination_class }}"  href="{{ get_params }}{{ current_page|sub:1 }}">{{ current_page|sub:1 }}</a> 
+	{% endif %}
+	
+	<span class="active"> [{{ current_page }}] </span>
+
+	{% if has_next %}
+	     <a class="{{ pagination_class }}" href="{{ get_params }}{{ current_page|add:1}}">{{ current_page|add:1 }}</a> 
+	{% endif %}
+
+	{% if has_next_next %}
+	     <a class="{{ pagination_class }}" href="{{ get_params }}{{ current_page|add:2 }}">{{ current_page|add:2 }}</a> 
+	{% endif %}
+
+	{% if has_end_hellip %}
+	     &hellip; 
+	{% endif %}
+
+	{% if has_end_page %}
+	     <a class="{{ pagination_class }}" href="{{ get_params }}{{ total_pages }}">{{ total_pages }}</a> 
+	{% endif %}
+	<!-- nuevo -->
+	{% if has_next %}
+        <a href="{{ get_params }}{{ has_next_num }}" class="next">{% trans "next" %} &rsaquo;&rsaquo;</a>
+	{% else %}
+	    <span class="disabled next">{% trans "next" %} &rsaquo;&rsaquo;</span>
+	{% endif %}
+	<!-- hasta aqui -->
+{% endifnotequal %}
+<!-- 
+{% if is_paginated %}
+{% load i18n %}
+<div class="pagination">
+    {% if has_previous %}
+        <a href="{{ get_params }}{{ has_prev_num }}" class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>
+    {% else %}
+        <span class="disabled prev">&lsaquo;&lsaquo; {% trans "previous" %}</span>
+    {% endif %}
+    {% for page in pages %}
+        {% if page %}
+            {% ifequal page current_page %}
+                <span class="current page">{{ page }}</span>
+            {% else %}
+                <a href="{{ get_params }}{{ page }}" class="page">{{ page }}</a>
+            {% endifequal %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    {% if has_next %}
+        <a href="{{ get_params }}{{ has_next_num }}" class="next">{% trans "next" %} &rsaquo;&rsaquo;</a>
+    {% else %}
+        <span class="disabled next">{% trans "next" %} &rsaquo;&rsaquo;</span>
+    {% endif %}
+</div>
+{% endif %}
+--->

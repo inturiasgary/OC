@@ -1,0 +1,8 @@
+{% extends "pages/base.html" %}
+{% load cache pages_tags %}
+{% block main_content %}
+<div id="main-column">
+{% placeholder main-column with RichTextarea parsed as main_column %}
+{{ main_column }}
+</div>
+{% endblock %}

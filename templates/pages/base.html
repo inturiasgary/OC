@@ -1,0 +1,9 @@
+{% extends "base_site.html" %}
+{% load cache pages_tags %}
+{% block head_title %}{% show_content current_page "title" %}{% endblock %}
+{% block content %}
+    {% block main_content %}
+    {% endblock %}
+    {% block sidebar %}
+    {% endblock %}
+{% endblock %}

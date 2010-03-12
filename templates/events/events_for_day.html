@@ -1,0 +1,10 @@
+{% load pagination_tags %}
+<ul>
+
+        {% for event in events_on_day %}
+            <li>
+                <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+            </li>    
+        {% endfor %}
+
+</ul>

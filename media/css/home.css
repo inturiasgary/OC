@@ -1,0 +1,225 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+/* end reset tags */
+#content
+{
+	width:100%;
+	height:auto;
+	min-height:335px;
+	float:left;
+	/*background:#0099FF;*/
+	
+
+}
+#content_body
+{
+	width:882px;
+	height:auto;
+	min-height:1000px;
+	margin:0 auto;
+	/*background:#99FF00;*/
+	
+}
+#body_left
+{
+	display:block;
+	width:300px;
+	height:auto;	
+	float:left;
+
+}
+#body_left div
+{
+	width:270px;
+	height:204px;
+	background:url(../images/bg_footer.png) no-repeat;
+	float:left;
+	margin-bottom:30px;
+}
+#body_left div p.context
+{
+	display:block;
+	
+	margin:0;
+	width:250px;
+	height:145px;
+	margin: 5px 10px 10px 10px;
+}
+#body_left div span
+{
+	width:95px;
+	height:11px;
+	display:block;
+	background:url(../images/bg_sermons.png) 0 0 no-repeat;
+	margin-left:23px;
+	margin-top:13px;
+}
+#body_left div span.latest
+{
+	background:url(../images/bg_latest.png) 0 0 no-repeat;
+}
+#body_left div p
+{
+
+	width:135px;
+	height:18px;
+	margin:0 auto;
+	
+}
+#body_left div p.subjects
+{
+	background:url(../images/txt_objects.png) 0 0 no-repeat;
+}
+#body_left div p.pastor
+{
+	background:url(../images/txt_pastor.png) 0 0 no-repeat;
+}
+#body_left div p.year
+{
+	background:url(../images/txt_year.png) 0 0 no-repeat;
+}
+#body_left div p.sermons
+{
+	background:url(../images/txt_sermons.png) 0 0 no-repeat;
+}
+#body_rigth
+{
+	display:block;
+	width:550px;
+	height:auto;
+	/*background:#FF0033;*/
+	float:left;
+	padding-left:20px;
+}
+#body_search
+{
+	width:550px;
+	height:35px;
+	/*background:#00FF00;*/
+	padding-top:5px;
+}
+#body_search span
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#000000;
+	display:block;
+	margin-right:10px;
+	float:left;
+	margin-top:5px;
+
+
+}
+#body_search input
+{
+	display:block;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+#body_search input#search_txt
+{	
+	width:250px;
+	height:20px;
+	padding-left:25px;
+	float:left;
+	margin-right:10px;
+	margin-left:10px;
+}
+
+#body_search input#search_button
+{	
+	display:block;
+	width:85px;
+	height:20px;
+	background:#1b84ed;
+	float:right;
+	border:0;
+	color:#FFFFFF;
+}
+#body_center
+{
+	display:block;
+	width:550px;
+	height:auto;
+	min-height:840px;
+	background:#2b4b62;
+	float:left;
+	margin-top:25px;
+	margin-bottom:30px;
+	
+}
+#body_center_results
+{
+	width:510px;
+	height:20px;
+	background:#1b84ed;
+	margin-top:20px;
+	padding-left:20px;
+	padding-right:20px;
+	
+}
+#body_center_results span
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#FFFFFF;
+	
+}
+#results_left
+{
+	width:250px;
+	height:20px;	
+	display:block;
+	float:left;
+}
+#results_rigth
+{
+	width:250px;
+	height:20px;	
+	display:block;
+	float:right;
+	text-align:right;
+
+}
+#results_rigth select
+{
+	width:53px;
+	height:18px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size:12px;
+
+	
+}

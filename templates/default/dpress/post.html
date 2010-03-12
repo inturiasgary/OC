@@ -1,0 +1,51 @@
+{% extends "dpress/ext_base.html" %}
+{% load dpressblog_tags %}
+{% load comments %}
+
+<div class="contents">
+{% block contents %}
+    <div class="entry">
+        <h2>{{post}}</h2>
+        <p class="meta">written by <a href="{% url dpress_index %}">{{post.author}}</a>, on {{post.created_at}}</p>
+
+        <div class="text">
+            <div class="document">
+            {% render_content post.body post.markup%}
+            </div>
+        </div>
+        <p class="related">
+            Tagged as:
+            {% show_tags_for_post post %}
+        </p>
+    </div>
+
+    <div id="comment-message">
+    <h3>Comments</h3>
+    
+    {% get_comment_list for post as tree %}
+    <ol id="comments">
+    {% for comment in tree %}
+      <li class="comment">
+    <div class="comment" id="comment-{{ comment.id }}">
+        <div class="text"><p><span>{% render_content comment.comment "" %}</span></p></div>
+        <p class="meta">Comment by {{ comment.name }} &mdash; 
+          {{comment.date_submitted}} |
+        <a href="#comment-{{ comment.id }}">#</a></p>
+    </div></li>
+    {% endfor %}
+    </ol>
+
+    <h3 id="leave-reply">Leave a Reply</h3>
+    <form action="#comments" class="comments" method="post">
+        <ul>
+            {{ form.as_ul }}
+        </ul>
+    <div class="actions">
+      <input type="submit" value="Submit Comment">
+      <input type="reset" value="Reset Form">
+    </div>
+    </form>
+    </div>
+    
+{% endblock %}
+</div>

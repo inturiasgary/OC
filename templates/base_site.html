@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load analytics %}
+<html xmlns="http://www.w3.org/1999/xhtml"{% if lang %} lang="{{ lang }}"  xml:lang="{{ lang }}"{% endif %}>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{% block head_title %}{% endblock %}</title>
+<link href="/media/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.min.js" /></script>
+{% block head_extra %}{% endblock %}
+</head>
+<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+<div id="container"><!-- contianer -->
+<span class="container-left"></span>
+  <div id="main-container">
+ 	<div id="header">
+        <div class="hd_top">
+          <div id="hd_title"></div>
+            <div id="hd_search">
+            	<form action="#" method="get" id="search_form"><input type="text" value="search" /><input type="button" name="search" class="search-button" /></form>
+            </div>
+            <div id="hd_icons">
+               <ul>
+            	<li><a href="#" class="icons1"></a></li>
+            	<li><a href="#" class="icons2"></a></li>
+            	<li><a href="#" class="icons3"></a></li>
+            	<li class="clear_icon"><a href="#" class="icons4"></a></li>
+               </ul>
+            </div><!--end header icons-->
+        </div><!--end hd_top -->
+    <div id="hd_menu">
+       <ul>
+    	<li><a href="/">HOME</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">SERMONS</a></li>
+        <li><a href="{% url dpress_index %}">BLOG</a></li>
+        <li><a href="#">EVENTS</a></li>
+        <li><a href="#">HOME GROUPS</a></li>
+        <li class="menu_clear"><a href="#">CONTACTS</a></li>
+       </ul>
+    </div><!--end hd_menu r-->
+  </div><!--end header-->
+    <div id="content">
+        {% block content %}{% endblock %}
+        <div class="clear"></div>
+    </div>	<!--end contentr-->
+  	<div id="footer"><p class="ft_left">© 2009 Open Door Church</p><p>marketfresh</p></div>
+  </div><!-- end main-container -->
+</div><!--end container-->{% block ga %}{% endblock %}
+</body>
+</html>

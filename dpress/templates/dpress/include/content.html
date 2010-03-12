@@ -1,0 +1,18 @@
+{% load dpressblog_tags %}
+{% load markup %}
+{% load switchcase %}
+{% load restructuredtext %}
+{% load creole %}
+{% if markup %}
+    {% switch markup %}
+        {% case 'crl' %} {{ content|creole|safe }} {% endcase %}
+        {% case 'rst' %} {{ content|restructuredtext|safe }} {% endcase %}
+        {% case 'mrk' %} {{ content|force_escape|markdown }} {% endcase %}
+        {% case 'txl' %} {{ content|force_escape|textile }} {% endcase %}
+        {% case 'html' %} {{ content|safe }} {% endcase %}
+    {% endswitch %}
+{% else %}
+    {{ content|force_escape|linebreaks|safe }}
+{% endif %}
+
+

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load events %}
+{% block head_extra %}
+<link href="/static/styles/calendar.css" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+{# Display month/year and links to previous/next month. #}
+<div class="content-calendar">
+  <h4 class="calendar_heading">
+    <a href="/events/{{ prev_month|date:"Y/m"}}/"> &lt; </a>
+    {{ cal_date|date:"F" }} 
+    {{ cal_date.year }}
+    <a href="/events/{{ next_month|date:"Y/m"}}/"> &gt; </a>
+  </h4>
+  
+  {# headers: Monday, Tuesday.... #}
+  <table class="cal_month_calendar">
+  <tr>
+  {% for dayname in daynames %}
+    <th>{{ dayname }}</th>
+  {% endfor %}
+  </tr>
+  
+  {# What we came here for: the days and events. #}
+  {# Make the grid of days #}
+  {% for week in dates %}
+      <tr class="pc_row_odd" align="left" valign="top">
+      {% for day in week %}
+        <td
+        {% ifequal day now.date %} class="today"
+        {% else %} 
+          {% ifequal day.month month %} 
+            class="cal_in_month" 
+          {% else %} class="cal_not_in_month"
+          {% endifequal %}
+        {% endifequal %}>
+  
+        <div class="pc_calendar_date">
+        <a href="/eventcal/{{ day|date:"Y/m/j" }}/#daysevents">
+        {{ day}}
+        </a> </div> 
+        {# spin thought the list of evetns, find ones for current day #}
+        {% events_for_day year month day %}
+        </td>
+  
+      {% endfor %}
+    </tr>
+  {% endfor %}
+  </table>
+  <br/>
+</div>
+{% endblock %}

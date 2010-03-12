@@ -1,0 +1,37 @@
+{% extends "dpress/ext_base.html" %}
+{% load dpressblog_tags %}
+{% load comments %}
+{% load pagination_tags %}
+
+<div class="contents">
+{% block contents %}
+    {% if tag %}
+        <h2>Posts tagged: {{tag}}</h2>
+    {% endif %}
+    {% if archive_month %}
+        <h2>Archives: {{ archive_month|date:"F Y" }}</h2>
+    {% endif %}
+    {% for o in page_obj.object_list %}
+    <div class="entry">
+        <h3><a href="{{o.get_absolute_url}}">{{o}}</a></h3>
+        <p class="meta">written by <a href="{% url dpress_index %}">{{o.author}}</a>, on {{o.created_at}}</p>
+
+        <div class="text">
+            <div class="document">
+            {% render_tease o %}
+            </div>
+        </div>
+        <p class="related">
+            Tagged as:
+            {% show_tags_for_post o %}
+            |
+            <a href="{{o.get_absolute_url}}#comments">
+                {% get_comment_count for o as commentcount %} {{ commentcount }} comments
+            </a>
+        </p>
+    </div>
+    {% endfor %}
+    
+	{% render_paginate %}
+{% endblock %}
+</div>

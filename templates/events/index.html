@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load events %}
+{% block content %}
+
+
+
+
+<ul>
+    {% regroup events_month by start_date.date as events_month %}
+    {% for event in events_month %}
+    <li>
+        {{ event.grouper|date:"l jS"  }}
+		{% for event in event.list %}
+        
+	<p><a href="{{ event.id }}">{{ event.title }}</a><br>
+        {{ event.description }}</p>
+            {% endfor %}
+    </li>
+    {% endfor %}
+
+</ul>
+
+	     <h1>events on month </h1>	
+	
+        	    {% event_for_month year month request %}
+        
+	    <h1>events on day </h1>
+
+            {% events_for_day year month day %}
+
+        <h1>events upcomming </h1>
+            {% get_upcomming_events num_e %}
+	
+{% endblock %}

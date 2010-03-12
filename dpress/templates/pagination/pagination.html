@@ -1,0 +1,15 @@
+<div id="pagination">
+    <span>{% if has_previous %}
+        <a href="?page=1{{getvars}}" class="first">First</a>
+        |
+        <a href="?page={{previous}}{{getvars}}" class="prev">Previous</a>
+        |
+    {% endif %}
+    · <strong>{{page}}</strong> ·
+    {% if has_next %}
+        |
+        <a href="?page={{next}}{{getvars}}" class="next">Next</a>
+        |
+        <a href="?page={{pages}}{{getvars}}" class="last">Last</a>
+    {% endif %}</span>
+</div>

@@ -1,0 +1,128 @@
+{% extends "pages/base.html" %}
+{% load cache pages_tags thumbnail %}
+{% block head_extra %}<link href="/media/css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(document).ready(function() {
+	//Set Default State of each portfolio piece
+	$(".paging").show();
+	$(".paging a:first").addClass("active");
+	var imageWidth = $(".image_reel img").width();
+	var imageSum = $(".image_reel img").size();
+	var imageReelWidth = imageWidth * imageSum;
+	$(".image_reel").css({'width' : imageReelWidth});
+	rotate = function(){	
+		var triggerID = $active.attr("rel") - 1; //Get number of times to slide
+		var image_reelPosition = triggerID * imageWidth; //Determines the distance the image reel needs to slide
+		$(".paging a").removeClass('active'); //Remove all active class
+		$active.addClass('active'); //Add active class (the $active is declared in the rotateSwitch function)
+		$(".image_reel").animate({ 
+			left: -image_reelPosition
+		}, 500 );
+		
+	}; 
+	rotateSwitch = function(){		
+		play = setInterval(function(){ //Set timer - this will repeat itself every 3 seconds
+			$active = $('.paging a.active').next();
+			if ( $active.length === 0) { //If paging reaches the end...
+				$active = $('.paging a:first'); //go back to first
+			}
+			rotate(); //Trigger the paging and slider function
+		}, 7000); //Timer speed in milliseconds (3 seconds)
+	};
+	rotateSwitch(); //Run function on launch
+	$(".image_reel a").hover(function() {
+		clearInterval(play); //Stop the rotation
+	}, function() {
+		rotateSwitch(); //Resume rotation
+	});	
+	$(".paging a").click(function() {	
+		$active = $(this); //Activate the clicked paging
+		clearInterval(play); //Stop the rotation
+		rotate(); //Trigger rotation immediately
+		rotateSwitch(); // Resume rotation
+		return false; //Prevent browser jump to link anchor
+	});	
+});
+</script>
+{% endblock %}
+{% load news_tags events sermons_tags %}
+{% block head_title %}{{ "Home Page"|escape }}{% endblock %}
+{% block content %}
+	<div id="home_top">
+          <div class="main_view">
+            <div class="window">	
+                <div class="image_reel_container"><div class="image_reel">{% load pictures %}{% get_gallery as pictures %}
+                {% for picture in pictures %}
+                    <a href=""><img src="{% thumbnail picture.image 569x215 crop %}" alt="{{ picture.title }}" /></a>
+                 {% endfor %}</div>
+                </div>
+            </div>
+            <div class="paging">
+            {% for item in pictures_count %}
+                <a href="#" rel="{{ item }}">{{ item }}</a>
+             {% endfor %}
+            </div>
+        </div>
+           <div id="welcome">
+               <p>{% placeholder welcome_section with RichTextarea parsed as welcome_section %}{{ welcome_section }}</p>
+               <ul>
+               	<li><a href="#" class="facebook">Facebook</a></li><li><a href="#" class="twitter">Twitter</a></li><li><a href="#" class="rss">RSS</a></li>
+               </ul>
+           </div>
+    </div><!-- end home_top -->
+    <div id="home_bottom">
+        <div class="box" id="news_box">
+            <span class="box_header"><h3 class="box_subjects">Recent Posts</h3></span>
+            <span class="box_content">
+                {% block news_box %}
+                    {% get_news 2 as items %} 
+                  	{% for item in items %}<div class="news_box">
+                        <span class="news_box_icon"><img src="/media/images/post.icon.png" alt="News Icon" /></span>
+                        <span class="news_box_content">
+                        	<h3><a href="{{ item.get_absolute_url }}">{{ item.title|truncatewords_html:5|title }}</a></h3>
+                        	<p>{{ item.snippet|truncatewords_html:10|urlize }}</p>
+                            <p class="news_date">Posted on {{ item.date|date:"M d, Y" }}</p>
+                        </span></div>
+                    {% endfor %}
+                    <span class="read_more"><a href="{% url news-index %}">Read more »</a></span>
+                {% endblock %} 
+            </span> <span class="box_footer" />
+        </div>
+        <div class="box" id="sermons_box">
+            <span class="box_header"><h3 class="box_sermons">Latest Events</h3></span>
+            <span class="box_content">
+                {% block sermons_box %}
+                    {% get_sermons 1 as sermons %} 
+                    {% for item in sermons %}
+                       <div class="sermon_box">
+                        <span class="sermon_box_icon"><img src="/media/images/iconos_49.png" alt="News Icon" /></span>
+                        <span class="sermon_box_content">
+                        	<h3><a href="{{ item.get_absolute_url }}">{{ item.title|truncatewords_html:7|title }}</a></h3>
+                            <h3 class="news_date">Author by: <a href="">{{ item.pastor }}</a></h3>
+                        	<p>{{ item.excerpt|truncatewords_html:20|urlize }}</p>
+                            <p class="news_date">Posted on {{ item.date|date:"M d, Y" }}</p>
+                        </span></div>
+                    {% endfor %}
+                    <span class="read_more"><a href="#">Read more »</a></span>
+                {% endblock %}
+          </span> <span class="box_footer" />
+        </div>
+        <div class="box" id="upcoming_events">
+            <span class="box_header"><h3 class="box_events">Latest Tweets</h3></span>
+            <span class="box_content">
+                 {% block events_box %}
+                    {% upcoming_events 1 as events %} 
+                    {% for item in events %}
+                       <div class="sermon_box">
+                        <span class="sermon_box_content">
+                        	<h3><a href="{{ item.get_absolute_url }}">{{ item.title|truncatewords_html:7|title }}</a></h3>
+                        	<p>{{ item.excerpt|truncatewords_html:20|urlize }}</p>
+                            <p class="news_date">Posted on {{ item.publish_on|date:"M d, Y" }}</p>
+                        </span><span class="sermon_box_icon"><img src="/media/images/iconos_52.png" alt="News Icon" /></span></div>
+                    {% endfor %}
+                    <span class="read_more"><a href="#">Read more »</a></span>
+                {% endblock %}
+            </span> <span class="box_footer" />
+        </div>
+     </div>   
+{% endblock %}

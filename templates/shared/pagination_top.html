@@ -1,0 +1,4 @@
+    {% ifnotequal total_items 0 %}
+            {{ item_from }}&#160;to&#160;{{ item_to }}{% if need_pagination %}&#160;of&#160;{{ total_items }}{% endif %}
+    {% endifnotequal %}
+

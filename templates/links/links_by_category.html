@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load links_tag %}
+
+{% block title %}
+<h1>Links for: {{ category.title }}</h1>
+{% endblock %}
+
+{% block content %}
+{% links_for_category category.slug %}
+{% endblock %}
+

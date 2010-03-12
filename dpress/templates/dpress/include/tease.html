@@ -1,0 +1,8 @@
+{% load dpressblog_tags %}
+{% load switchcase %}
+{% if o.tease %}
+	{% render_content o.tease o.markup%}
+{% else %}
+	{% render_content o.body o.markup%}
+{% endif %}
+

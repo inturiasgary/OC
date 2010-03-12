@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+#home_top {
+	height: 263px;
+	margin-bottom: 30px;
+}
+
+#welcome {
+	margin: 15px 25px;
+	padding: 48px 0 0 20px;
+	background: url(../images/welcome.png) no-repeat 5px 5px;
+	width: 220px;
+	height: 205px;
+	float: left;
+	color: #FFF;
+	font-size: 10pt;
+	line-height: 12pt;
+	letter-spacing: 0.5pt;
+}
+
+#welcome p {
+	display: block;
+	height: 150px;
+	overflow: hidden;
+}
+
+#welcome ul {
+	display: block;
+	height: 25px;
+	margin: 5px;
+}
+
+#welcome ul li {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin-right: 20px;
+	float: left;
+}
+
+#welcome ul li a {
+	display: block;
+	width: 24px;
+	height: 24px;
+	text-indent: -9999px;
+}
+
+#welcome ul li a.twitter {
+	background: url(../images/img_icon2.png) no-repeat top left;
+}
+
+#welcome ul li a.facebook {
+	background: url(../images/img_icon1.png) no-repeat top left;
+}
+
+#welcome ul li a.rss {
+	background: url(../images/img_icon3.png) no-repeat top left;
+}
+
+#home_bottom div.box {
+	float: left;
+	margin-left: 33px;
+}
+
+#home_bottom div#latest_news {
+	margin: 0;
+}
+
+body {
+	background: url(../images/index.body.bg.png) repeat-x top left !important;
+	background-color: #36475a;
+}
+
+/*--Main Container--*/
+
+.main_view {
+	float: left;
+	position: relative;
+}
+
+/*--Window/Masking Styles--*/
+
+.window {
+	margin: 15px 0;
+	height: 210px;
+	width: 569px;
+	overflow: hidde
+
+n;
+	/*--Hides anything outside of the set width/height--*/
+	position: relative;
+	float: left;
+	border: #3b4652 10px solid;
+}
+
+.image_reel_container {
+	height: 210px;
+	width: 569px;
+}
+
+.image_reel {
+	height: 210px;
+	width: 564px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.image_reel img {
+	float: left;
+}
+
+/*--Paging Styles--*/
+
+.paging {
+	position: absolute;
+	bottom: 40px;
+	right: -7px;
+	width: 178px;
+	height: 47px;
+	z-index: 10
+
+0;
+	/*--Assures the paging stays on the top layer--*/
+	text-align: center;
+	line-height: 40px;
+	background: url(../images/paging_bg2.png) no-repeat;
+}
+
+.paging a {
+	padding: 5px;
+	text-decoration: none;
+	color: #fff;
+}
+
+.paging a.active {
+	font-weight: bold;
+	background: #fff;
+	color: #1a85eb;
+	border: 1px solid #610000;
+}
+
+.paging a:hover {
+	color: #1a85eb;
+	font-weight: bold;
+	background: #fff;
+}
+
+#home_bottom div#news_box, #home_bottom div#sermons_box, #home_bottom div#upcoming_events {
+	height: 222px !important;
+}
+
+#home_bottom div#news_box {
+	margin: 0;
+}
+
+.box_subjects {
+	background: url(../images/recentpost.png) no-repeat 20px 8px;
+}
+
+.box_sermons {
+	background: url(../images/recentsermon.png) no-repeat 20px 8px;
+}
+
+.box_events {
+	background: url(../images/upcomingevents.png) no-repeat 20px 12px;
+}
+
+.news_box span {
+	display: block;
+	float: left;
+}
+
+div.news_box {
+	margin: 0;
+	clear: both;
+}
+
+.news_box span.news_box_icon {
+	width: 45px;
+	height: 45px;
+	overflow: hidden;
+	margin: 10px 10px 10px 0;
+}
+
+.news_box_content {
+	padding: 4px 0 0;
+	width: 175px;
+}
+
+.news_box_content h3 a, .sermon_box_content h3 a {
+	text-decoration: underline;
+	color: #000;
+}
+
+.news_box_content h3 a:hover, .sermon_box_content h3 a:hover {
+	color: #1a85eb;
+}
+
+.news_date {
+	font-size: 7pt;
+	font-variant: small-caps;
+}
+
+.read_more {
+	clear: both;
+	display: block;
+	height: 12px;
+	margin-left: 157px;
+}
+
+.read_more a {
+	color: #1a85eb;
+}
+
+.read_more a:hover {
+	color: #fff;
+}
+
+.sermon_box_icon {
+	height: 90px;
+	width: 55px;
+	margin: 20px 10px 20px 0;
+	display: block;
+	float: left;
+}
+
+.sermon_box_content {
+	display: block;
+	float: left;
+	width: 155px;
+	height: 130px;
+}
+
+#news_box span.box_content, #sermons_box span.box_content, #upcoming_events span.box_content {
+	height: 125px !important;
+}

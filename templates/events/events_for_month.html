@@ -1,0 +1,21 @@
+{% load pagination_filters %}
+
+{% block content %}
+
+<div id="left_contacts">
+	 {% if events_month %}
+	   <div class="row_2_3">
+	      <h4> Events in month</h4>
+	   </div>		
+	   {% for event in events_month %}
+		<li>
+                <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+        	</li>    
+	   {% endfor %}
+
+    <div class="comment_label">{% show_pagination events_month_paginator request "ev_m" %}</div>
+
+	 {% endif %}
+{% endblock %} 
+
+

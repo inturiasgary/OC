@@ -1,0 +1,7 @@
+
+{% for link in links %}
+<p>
+<a href="{{ link.url }}">{{ link.title }}</a><br />
+{{ link.description }}
+</p>
+{% endfor %}

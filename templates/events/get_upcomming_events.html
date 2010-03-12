@@ -1,0 +1,10 @@
+{% load thumbnail %}
+<ul>
+	{% for event in upcomming_events %}
+		<li>		        
+			{{ event.start_date|date:"b j"|capfirst }} <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+			<img src="{% thumbnail event.icon 80x80 %}" /><p>{{ event.excerpt|capfirst }}</p>
+		</li>
+	{% endfor %}
+
+<ul>

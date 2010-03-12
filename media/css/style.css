@@ -1,0 +1,398 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset,img {
+	border: 0;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+caption,th {
+	text-align: left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+q:before,q:after {
+	content: '';
+}
+
+abbr,acronym {
+	border: 0;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #1a85eb
+}
+
+/* end reset tags */
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: url(../images/body_bg.png) top left repeat-x;
+	background-color: #36475a;
+}
+
+#container {
+	width: 100%;
+	height: auto;
+	min-height: 600px;
+}
+
+span.container-left {
+	display: block;
+	width: 10%;
+	height: 105px;
+	float: left;
+	background: url(../images/header_background.png) bottom left no-repeat;
+}
+
+#main-container {
+	float: left;
+	width: 80%;
+	height: auto;
+	min-height: 550px;
+	height: 550px;
+	margin-right: 10%;
+	background: url(../images/header_background.png) no-repeat 0 57px;
+}
+
+/* Header Style */
+
+#header {
+	height: 180px;
+}
+
+#header div.hd_top {
+	width: 882px;
+	height: 130px;
+	margin: 0 auto;
+	position: relative;
+}
+
+div#hd_title {
+	z-index: 5;
+	height: 100px;
+	width: 510px;
+	position: relative;
+	top: 5px;
+	left: -40px;
+	background: url(../images/logo.png) no-repeat bottom left;
+}
+
+div#hd_search {
+	float: right;
+	height: 27px;
+	margin: 15px 0 0 0;
+	width: 230px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+/* needs to refactor */
+
+div#hd_search input {
+	display: block;
+	float: left;
+	width: 151px;
+	height: 16px;
+	padding: 2px;
+	margin-right: 10px;
+	border: 1px solid #292929;
+}
+
+div#hd_search input.search-button {
+	display: block;
+	width: 50px;
+	height: 17px;
+	background: url(../images/button.search.gif) top left no-repeat;
+	float: left;
+	border: none;
+	margin-top: 3px;
+}
+
+div#hd_icons {
+	clear: both;
+	height: 48px;
+	width: 860px;
+	background: url(../images/header_background.png) repeat-x;
+	position: absolute;
+	top: 57px;
+}
+
+div#hd_icons ul {
+	display: block;
+	float: right;
+	margin-right: -23px;
+}
+
+div#hd_icons ul li {
+	float: left;
+	width: 50px;
+	margin-left: 5px;
+}
+
+div#hd_icons ul li a {
+	display: block;
+	height: 48px;
+}
+
+div#hd_icons ul li a.icons1 {
+	background: url(../images/visionicon1.gif) 0 0 no-repeat;
+}
+
+div#hd_icons ul li a.icons2 {
+	background: url(../images/visionicon2.gif) 0 0 no-repeat;
+}
+
+div#hd_icons ul li a.icons3 {
+	background: url(../images/visionicon3.gif) 0 0 no-repeat;
+}
+
+div#hd_icons ul li a.icons4 {
+	background: url(../images/visionicon4.gif) 0 0 no-repeat;
+}
+
+/* Menu Style */
+
+#hd_menu {
+	width: 882px;
+	margin: 0 auto;
+	height: 30px;
+	background: url(../images/menu.bg.png) top left repeat-x;
+}
+
+#hd_menu ul {
+	display: block;
+	margin: 0 15px;
+}
+
+#hd_menu ul li {
+	float: left;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 3pt 75px 3pt 0;
+	vertical-align: middle;
+}
+
+.menu_clear {
+	margin-right: 0;
+}
+
+#hd_menu ul li a {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#hd_menu ul li.menu_clear {
+	margin-right: 0;
+}
+
+/* End Menu Style */
+
+#content {
+	width: 882px;
+	margin: 0 auto;
+	height: auto !important;
+	min-height: 460px;
+	height: 460px;
+	position: relative;
+}
+
+/* General Styles */
+
+.clear {
+	clear: both;
+}
+
+.nomargin {
+	margin: 0;
+}
+
+.block {
+	display: block;
+}
+
+#contents {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: auto !important;
+	padding: 10px 0 0 0;
+	width: 582px;
+}
+
+#contents h2 {
+	color: #fff;
+	text-transform: capitalize;
+}
+
+#content div.entry {
+	height: auto !important;
+	min-height: 42px;
+	padding: 0 0 40px;
+	margin: 20px 0;
+	position: relative;
+	width: 570px;
+}
+
+div.entry-content {
+	height: auto !important;
+	margin: 0 22px 0 0;
+	padding: 50px 30px 20px;
+	background: #b0c3cf;
+	font-size: 11pt;
+	width: 488px;
+}
+
+div.entry div.text {
+	text-align: justify;
+	padding-bottom: 5px;
+}
+
+div.entry div.text a, p.meta a, p.related a {
+	color: #1a85eb;
+}
+
+div.entry div.text a:hover, p.meta a:hover, p.related a:hover {
+	color: #fff;
+}
+
+#content div.entry h3 {
+	background: url(../images/item.header.bg.png) no-repeat scroll right top transparent;
+	color: #FFFFFF;
+	display: block;
+	font-size: 14pt;
+	height: 25px;
+	padding: 10px 35px;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	text-transform: capitalize;
+	top: -5px;
+	width: 488px;
+	z-index: 2;
+}
+
+p.meta, p.related {
+	font-size: 8pt;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+div#pagination {
+	width: 570px;
+}
+
+div#pagination span {
+	display: block;
+	text-align: center;
+	color: #fff;
+}
+
+#sidebar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: auto !important;
+}
+
+.widget {
+	width: 270px;
+	height: auto !important;
+	min-height: 42px;
+	background: url(../images/box.header.bg.png) no-repeat top left;
+}
+
+.widget a {
+	color: #1a85eb;
+}
+
+.widget a:hover {
+	color: #fff
+}
+
+.widget h3 {
+	color: #FFFFFF;
+	display: block;
+	font-size: 13pt;
+	height: 18px;
+	padding: 23px 0 0 10px;
+}
+
+.widget-content {
+	display: block;
+	height: auto !important;
+	background: #b0c3cf;
+	padding: 20px;
+}
+
+.widget-footer {
+	display: block;
+	height: 17px;
+	background: url(../images/box.footer.bg.png) no-repeat top left;
+	margin-bottom: 20px;
+}
+
+#feedburner {
+	background: url(../images/img_icon3.png) no-repeat scroll left top transparent;
+	display: block;
+	height: 24px;
+	margin: 10px 0;
+	padding: 2px 27px;
+	width: 210px;
+}
+
+/* footer section */
+
+#footer {
+	clear: both;
+	height: 10px;
+	margin: 0 auto;
+	padding: 20px 0;
+	width: 882px;
+}
+
+#footer p {
+	display: block;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fff;
+	font-size: 12px;
+	float: right;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+#footer p.ft_left {
+	margin: 0;
+	float: left;
+}
